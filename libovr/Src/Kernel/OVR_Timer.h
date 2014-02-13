@@ -55,15 +55,15 @@ public:
     // Returns ticks in milliseconds, as a 32-bit number. May wrap around every
     // 49.2 days. Use either time difference of two values of GetTicks to avoid
     // wrap-around.  GetTicksMs may perform better then GetTicks.
-    static UInt32  OVR_STDCALL GetTicksMs();
+    static UInt32  /*OVR_STDCALL*/ GetTicksMs();
 
     // GetTicks returns general-purpose high resolution application timer value,
     // measured in microseconds (mks, or 1/1000000 of a second). The actual precision
     // is system-specific and may be much lower, such as 1 ms.
-    static UInt64  OVR_STDCALL GetTicks();
+    static UInt64  /*OVR_STDCALL*/ GetTicks();
 
     // Returns global high-resolution application timer in seconds.
-    static double  OVR_STDCALL GetSeconds();
+    static double  /*OVR_STDCALL*/ GetSeconds();
 
     
     // ***** Profiling APIs.
@@ -76,16 +76,16 @@ public:
     // Generally you want to call this at the start and end of an
     // operation, and pass the difference to
     // TicksToSeconds() to find out how long the operation took. 
-    static UInt64  OVR_STDCALL GetProfileTicks();
+    static UInt64  /*OVR_STDCALL*/ GetProfileTicks();
 
     // More convenient zero-based profile timer in seconds. First call initializes 
     // the "zero" value; future calls return the difference. Not thread safe for first call.
     // Due to low precision of Double, may malfunction after long runtime.
-    static double  OVR_STDCALL GetProfileSeconds();
+    static double  /*OVR_STDCALL*/ GetProfileSeconds();
 
     // Get the raw cycle counter value, providing the maximum possible timer resolution.
-    static UInt64  OVR_STDCALL GetRawTicks();
-    static UInt64  OVR_STDCALL GetRawFrequency();
+    static UInt64  /*OVR_STDCALL*/ GetRawTicks();
+    static UInt64  /*OVR_STDCALL*/ GetRawFrequency();
 
     
     // ***** Tick and time unit conversion.
@@ -102,7 +102,7 @@ public:
     }
 
 private:
-    friend class System;
+//    friend class System;
     // System called during program startup/shutdown.
     static void initializeTimerSystem();
     static void shutdownTimerSystem();

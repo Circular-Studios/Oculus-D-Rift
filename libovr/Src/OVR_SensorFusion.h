@@ -194,7 +194,7 @@ private:
     template<class C>
     C lockedGet(const C* p) const
     {
-        Lock::Locker lockScope(Handler.GetHandlerLock());
+        //Lock::Locker lockScope(Handler.GetHandlerLock());
         return *p;
     }
 

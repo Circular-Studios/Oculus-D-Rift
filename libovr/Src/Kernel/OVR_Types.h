@@ -231,14 +231,14 @@ typedef unsigned __int64 UInt64;
  
 #elif defined(OVR_OS_MAC) || defined(OVR_OS_IPHONE) || defined(OVR_CC_GNU)
 
-typedef int             SByte  __attribute__((__mode__ (__QI__)));
-typedef unsigned int    UByte  __attribute__((__mode__ (__QI__)));
-typedef int             SInt16 __attribute__((__mode__ (__HI__)));
-typedef unsigned int    UInt16 __attribute__((__mode__ (__HI__)));
-typedef int             SInt32 __attribute__((__mode__ (__SI__)));
-typedef unsigned int    UInt32 __attribute__((__mode__ (__SI__)));
-typedef int             SInt64 __attribute__((__mode__ (__DI__)));
-typedef unsigned int    UInt64 __attribute__((__mode__ (__DI__)));
+//typedef int             SByte  __attribute__((__mode__ (__QI__)));
+//typedef unsigned int    UByte  __attribute__((__mode__ (__QI__)));
+//typedef int             SInt16 __attribute__((__mode__ (__HI__)));
+//typedef unsigned int    UInt16 __attribute__((__mode__ (__HI__)));
+//typedef int             SInt32 __attribute__((__mode__ (__SI__)));
+//typedef unsigned int    UInt32 __attribute__((__mode__ (__SI__)));
+//typedef int             SInt64 __attribute__((__mode__ (__DI__)));
+//typedef unsigned int    UInt64 __attribute__((__mode__ (__DI__)));
 
 #else
 
@@ -304,7 +304,7 @@ namespace BaseTypes
 #if defined(OVR_CC_MSVC)
 #  define OVR_FORCE_INLINE  __forceinline
 #elif defined(OVR_CC_GNU)
-#  define OVR_FORCE_INLINE  __attribute__((always_inline)) inline
+//#  define OVR_FORCE_INLINE  __attribute__((always_inline)) inline
 #else
 #  define OVR_FORCE_INLINE  inline
 #endif  // OVR_CC_MSVC
@@ -336,7 +336,7 @@ namespace BaseTypes
     #endif // (OVR_CC_MSVC)
 
     #ifdef UNICODE
-    #  define OVR_STR(str)      L##str
+//    #  define OVR_STR(str)      L##str
     #else
     #  define OVR_STR(str)      str
     #endif // UNICODE
@@ -347,11 +347,11 @@ namespace BaseTypes
 
     #if (defined(BYTE_ORDER) && (BYTE_ORDER == BIG_ENDIAN))|| \
         (defined(_BYTE_ORDER) && (_BYTE_ORDER == _BIG_ENDIAN))
-    #  define OVR_BYTE_ORDER    OVR_BIG_ENDIAN
+//    #  define OVR_BYTE_ORDER    OVR_BIG_ENDIAN
     #elif (defined(__ARMEB__) || defined(OVR_CPU_PPC) || defined(OVR_CPU_PPC64))
-    #  define OVR_BYTE_ORDER    OVR_BIG_ENDIAN
+//    #  define OVR_BYTE_ORDER    OVR_BIG_ENDIAN
     #else
-    #  define OVR_BYTE_ORDER    OVR_LITTLE_ENDIAN
+//    #  define OVR_BYTE_ORDER    OVR_LITTLE_ENDIAN
     #endif
     
     // Assembly macros
@@ -415,7 +415,7 @@ namespace BaseTypes
 
 // Macro to quiet compiler warnings about unused parameters/variables.
 #if defined(OVR_CC_GNU)
-#  define   OVR_UNUSED(a)   do {__typeof__ (&a) __attribute__ ((unused)) __tmp = &a; } while(0)
+//#  define   OVR_UNUSED(a)   do {__typeof__ (&a) __attribute__ ((unused)) __tmp = &a; } while(0)
 #else
 #  define   OVR_UNUSED(a)   (a)
 #endif
@@ -438,7 +438,7 @@ namespace BaseTypes
 #ifdef OVR_BUILD_DEBUG
 #  define OVR_BUILD_STRING  "Debug"
 #else
-#  define OVR_BUILD_STRING  "Release"
+//#  define OVR_BUILD_STRING  "Release"
 #endif
 
 

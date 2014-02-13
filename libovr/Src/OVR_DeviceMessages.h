@@ -41,7 +41,7 @@ class DeviceBase;
 class DeviceHandle;
 
 
-#define OVR_MESSAGETYPE(devName, msgIndex)   ((Device_##devName << 8) | msgIndex)
+//#define OVR_MESSAGETYPE(devName, msgIndex)   ((Device_##devName << 8) | msgIndex)
 
 // MessageType identifies the structure of the Message class; based on the message,
 // casting can be used to obtain the exact value.
