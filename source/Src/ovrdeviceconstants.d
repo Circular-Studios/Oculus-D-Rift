@@ -1,4 +1,4 @@
-module Src.OVR_DeviceConstants;
+module src.ovrdeviceconstants;
 
 /************************************************************************************
 
@@ -27,10 +27,6 @@ limitations under the License.
 
 *************************************************************************************/
 
-
-namespace OVR {
-
-
 //-------------------------------------------------------------------------------------
 // Different device types supported by OVR; this type is reported by DeviceBase::GetType.
 // 
@@ -44,6 +40,3 @@ enum DeviceType
     Device_BootLoader       = 5,
     Device_All              = 0xFF // Set for enumeration only, to enumerate all device types.
 };
-
-} // namespace OVR
-

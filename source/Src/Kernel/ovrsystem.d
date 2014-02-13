@@ -29,10 +29,8 @@ limitations under the License.
 ************************************************************************************/
 
 
-import OVR_Allocator;
-import OVR_Log;
-
-namespace OVR {
+import import src.kernel.ovrallocator;
+import import src.kernel.ovrlog;
 
 // ***** System Core Initialization class
 
@@ -72,6 +70,3 @@ public:
     // the global memory allocator.
     static void /*OVR_CDECL*/ Destroy();    
 };
-
-} // OVR
-

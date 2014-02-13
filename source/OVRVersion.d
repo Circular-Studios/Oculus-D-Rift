@@ -1,4 +1,4 @@
-module OVRVersion;
+module ovrversion;
 
 /************************************************************************************
 
@@ -29,4 +29,3 @@ enum OVR_MAJOR_VERSION = 0;
 enum OVR_MINOR_VERSION = 2;
 enum OVR_BUILD_VERSION = 5;
 enum OVR_VERSION_STRING = "0.2.5";
-

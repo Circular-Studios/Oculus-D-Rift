@@ -1,4 +1,4 @@
-module Src.Kernel.OVR_Types;
+module src.kernel.ovrtypes;
 
 /************************************************************************************
 
@@ -207,8 +207,6 @@ static if(!OVR_DEFINE_NEW) {
 //-----------------------------------------------------------------------------------
 // ***** Type definitions for Common Systems
 
-namespace OVR {
-
 alias char            Char;
 
 // Pointer-sized integer
@@ -275,8 +273,6 @@ namespace BaseTypes
     using OVR.UInt64;
     using OVR.SInt64;
 } // OVR::BaseTypes
-
-} // OVR
 
 
 //-----------------------------------------------------------------------------------
@@ -420,9 +416,9 @@ static if(defined(OVR_CC_GNU)) {
 
 // SF Build type
 static if(OVR_BUILD_DEBUG) {
-enum OVR_BUILD_STRING =  "Debug";
+enum OVR_BUILD_STRING = "Debug";
 } else {
-//#  define OVR_BUILD_STRING  "Release"
+enum OVR_BUILD_STRING = "Release"
 }
 
 

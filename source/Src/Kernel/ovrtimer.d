@@ -1,4 +1,4 @@
-module Src.Kernel.OVR_Timer;
+module src.kernel.ovrtimer;
 
 /************************************************************************************
 
@@ -27,10 +27,7 @@ limitations under the License.
 
 ************************************************************************************/
 
-
-import OVR_Types;
-
-namespace OVR {
+import src.kernel.types;
     
 //-----------------------------------------------------------------------------------
 // ***** Timer
@@ -111,8 +108,3 @@ private:
 
 // Global high-resolution time in seconds. This is intended to replace Timer class in OVR.
 double ovr_GetTimeInSeconds();
-
-
-
-} // OVR::Timer
-

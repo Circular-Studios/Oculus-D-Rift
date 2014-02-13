@@ -1,4 +1,4 @@
-module Src.Kernel.OVR_Color;
+module src.kernel.ovrcolor;
 
 /************************************************************************************
 
@@ -27,9 +27,7 @@ limitations under the License.
 
 ************************************************************************************/
 
-import OVR_Types;
-
-namespace OVR {
+import src.kernel.ovrtypes;
 
 struct Color
 {
@@ -57,7 +55,5 @@ struct Color
         *b = B / 255.0f;
         *a = A / 255.0f;
     }
-};
-
 }
 

@@ -1,4 +1,4 @@
-module Src.OVR_DeviceMessages;
+module src.ovrdevicemessages;
 
 /************************************************************************************
 
@@ -28,15 +28,12 @@ limitations under the License.
 *************************************************************************************/
 
 
-import OVR_DeviceConstants;
-import OVR_DeviceHandle;
+import src.ovrdeviceConstants;
+import src.ovrdeviceHandle;
 
-import Kernel.OVR_Math;
-import Kernel.OVR_Array;
-import Kernel.OVR_Color;
-
-namespace OVR {
-
+import src.kernel.ovrmath;
+import src.kernel.ovrarray;
+import src.kernel.ovrcolor;
 
 //#define OVR_MESSAGETYPE(devName, msgIndex)   ((Device_##devName << 8) | msgIndex)
 
@@ -57,8 +54,7 @@ enum MessageType
     Message_LatencyTestColorDetected    = OVR_MESSAGETYPE(LatencyTester, 1),
     Message_LatencyTestStarted          = OVR_MESSAGETYPE(LatencyTester, 2),
     Message_LatencyTestButton           = OVR_MESSAGETYPE(LatencyTester, 3),
-
-};
+}
 
 //-------------------------------------------------------------------------------------
 // Base class for all messages.
@@ -71,7 +67,7 @@ public:
 
     MessageType Type;    // What kind of message this is.
     DeviceBase* pDevice; // Device that emitted the message.
-};
+}
 
 
 // Sensor BodyFrame notification.
@@ -98,7 +94,7 @@ public:
     Vector3f MagneticField;  // Magnetic field strength in Gauss.
     float    Temperature;    // Temperature reading on sensor surface, in degrees Celsius.
     float    TimeDelta;      // Time passed since last Body Frame, in seconds.
-};
+}
 
 // Sent when we receive a device status changes (e.g.:
 // Message_DeviceAdded, Message_DeviceRemoved).
@@ -108,7 +104,7 @@ public:
 	this(MessageType type, DeviceBase* dev, ref const DeviceHandle  hdev) { super(type, dev); Handle = (hdev); }
 
 	DeviceHandle Handle;
-};
+}
 
 //-------------------------------------------------------------------------------------
 // ***** Latency Tester
@@ -122,7 +118,7 @@ public:
     }
 
     Array!(Color)     Samples;
-};
+}
 
 // Sent when a Latency Tester 'color detected' event occurs.
 class MessageLatencyTestColorDetected : public Message
@@ -135,7 +131,7 @@ public:
     UInt16      Elapsed;
     Color       DetectedValue;
     Color       TargetValue;
-};
+}
 
 // Sent when a Latency Tester 'change color' event occurs.
 class MessageLatencyTestStarted : public Message
@@ -146,7 +142,7 @@ public:
     }
 
     Color    TargetValue;
-};
+}
 
 // Sent when a Latency Tester 'button' event occurs.
 class MessageLatencyTestButton : public Message
@@ -156,8 +152,4 @@ public:
     { super(OVR.MessageType.Message_LatencyTestButton, dev);
     }
 
-};
-
-
-} // namespace OVR
-
+}

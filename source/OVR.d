@@ -1,4 +1,4 @@
-module OVR;
+module ovr;
 
 /************************************************************************************
 
@@ -26,18 +26,16 @@ limitations under the License.
 *************************************************************************************/
 
 
-import __.Src.Kernel.OVR_Allocator;
-import __.Src.Kernel.OVR_Log;
-import __.Src.Kernel.OVR_Math;
-import __.Src.Kernel.OVR_System;
-import __.Src.Kernel.OVR_Types;
-import __.Src.OVR_Device;
-import __.Src.OVR_DeviceConstants;
-import __.Src.OVR_DeviceHandle;
-import __.Src.OVR_DeviceMessages;
-import __.Src.OVR_SensorFusion;
-import __.Src.OVR_Profile;
-import __.Src.Util.Util_LatencyTest;
-import __.Src.Util.Util_Render_Stereo;
-
-
+import src.kernel.ovrallocator;
+import src.kernel.ovrlog;
+import src.kernel.ovrmath;
+import src.kernel.ovrsystem;
+import src.kernel.ovrtypes;
+import src.ovrdevice;
+import src.ovrdeviceConstants;
+import src.ovrdeviceHandle;
+import src.ovrdeviceMessages;
+import src.ovrsensorFusion;
+import src.ovrprofile;
+import src.util.utillatencyTest;
+import src.util.utilrenderstereo;

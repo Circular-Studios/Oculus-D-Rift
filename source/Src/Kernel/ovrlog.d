@@ -28,10 +28,8 @@ limitations under the License.
 ************************************************************************************/
 
 
-import OVR_Types;
+import import src.kernel.ovrtypes;;
 // #include <stdarg.h>
-
-namespace OVR {
 
 //-----------------------------------------------------------------------------------
 // ***** Logging Constants
@@ -198,6 +196,3 @@ static if(OVR_BUILD_DEBUG) {
      void OVR_ASSERT_LOG(  ARG1,  ARG2 )(ARG1 c, ARG2 args) {      (cast()0); }
 
 }
-
-} // OVR 
-

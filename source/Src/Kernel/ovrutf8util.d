@@ -1,4 +1,4 @@
-module Src.Kernel.OVR_UTF8Util;
+module src.kernel.ovrutf8util;
 
 /************************************************************************************
 
@@ -27,9 +27,7 @@ limitations under the License.
 ************************************************************************************/
 
 
-import OVR_Types;
-
-namespace OVR { namespace UTF8Util {
+import src.kernel.ovrtypes;
 
 //-----------------------------------------------------------------------------------
 
@@ -91,7 +89,4 @@ UInt32 DecodeNextChar(const(char) ** putf8Buffer)
         (*putf8Buffer)--;
     return ch;
 }
-
-
-}} // OVR::UTF8Util
 

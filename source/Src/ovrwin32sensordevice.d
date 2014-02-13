@@ -1,4 +1,4 @@
-module Src.OVR_Win32_SensorDevice;
+module src.ovrwin32sensordevice;
 
 /************************************************************************************
 
@@ -26,10 +26,4 @@ limitations under the License.
 
 *************************************************************************************/
 
-
-namespace OVR { namespace Win32 {
-
-}} // namespace OVR::Win32
-
  // OVR_Win32_SensorDevice_h
-
