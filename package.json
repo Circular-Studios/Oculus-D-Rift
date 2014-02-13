@@ -1,0 +1,9 @@
+{
+	"name": "oculus-d-rift",
+	"description": "A D binding to the Oculus Rift API.",
+	"copyright": "Copyright © 2014, Cirular Studios",
+	"authors": [ "Colden Cullen", "Daniel Jost" ],
+	"license": "MIT",
+	"dependencies": {
+	}
+}
