@@ -1,0 +1,1 @@
+swig -c++ -d -d2 -outdir ./swig/ -cpperraswarn -D_WIN32=1 -I/usr/include/clang/3.2/include -I/usr/include -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -Ilibovr/Src -package ovr -v swig/ovr.i
