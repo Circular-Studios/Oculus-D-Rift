@@ -61,16 +61,16 @@ public:
     }
 
     // Returns 'true' if system was properly initialized.
-    static bool /*OVR_CDECL*/ IsInitialized();
+    static bool OVR_CDECL IsInitialized();
 
     // Initializes System core.  Users can override memory implementation by passing
     // a different Allocator here.
-    static void /*OVR_CDECL*/ Init(Log* log = Log::ConfigureDefaultLog(LogMask_Debug),
+    static void OVR_CDECL Init(Log* log = Log::ConfigureDefaultLog(LogMask_Debug),
                                Allocator *palloc = DefaultAllocator::InitSystemSingleton());
 
     // De-initializes System more, finalizing the threading system and destroying
     // the global memory allocator.
-    static void /*OVR_CDECL*/ Destroy();    
+    static void OVR_CDECL Destroy();    
 };
 
 } // OVR
