@@ -1,1 +1,1 @@
-swig -c++ -d -d2 -outdir ./swig/ -cpperraswarn -D_WIN32=1 -I/usr/include/clang/3.2/include -I/usr/include -I/usr/include/c++/4.8 -I/usr/include/x86_64-linux-gnu/c++/4.8 -Ilibovr/Src -package ovr -v swig/ovr.i
+swig -c++ -d -d2 -outdir ./swig/build/ -cpperraswarn -D_WIN32=1 -D_MSC_VER=1600 -Ilibovr/Src -v swig/ovr.i

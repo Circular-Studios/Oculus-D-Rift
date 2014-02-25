@@ -1,0 +1,1 @@
+swig -c++ -d -d2 -outdir .\swig\build\ -cpperraswarn -D_WIN32=1 -Ilibovr\Src -v swig\ovr.i
