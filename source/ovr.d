@@ -23,11 +23,11 @@ enum LogMaskConstants {
 }
 
 enum LogMessageType {
-  Log_Text = OVR::LogMask_Regular|0,
-  Log_Error = OVR::LogMask_Regular|1,
-  Log_DebugText = OVR::LogMask_Debug|0,
-  Log_Debug = OVR::LogMask_Debug|1,
-  Log_Assert = OVR::LogMask_Debug|2
+	Log_Text = LogMaskConstants.LogMask_Regular|0,
+	Log_Error = LogMaskConstants.LogMask_Regular|1,
+	Log_DebugText = LogMaskConstants.LogMask_Debug|0,
+	Log_Debug = LogMaskConstants.LogMask_Debug|1,
+	Log_Assert = LogMaskConstants.LogMask_Debug|2
 }
 
 class Log {
@@ -1722,13 +1722,13 @@ class DeviceHandle {
 
 enum MessageType {
   Message_None = 0,
-  Message_DeviceAdded = ((OVR::Device_Manager << 8)|0),
-  Message_DeviceRemoved = ((OVR::Device_Manager << 8)|1),
-  Message_BodyFrame = ((OVR::Device_Sensor << 8)|0),
-  Message_LatencyTestSamples = ((OVR::Device_LatencyTester << 8)|0),
-  Message_LatencyTestColorDetected = ((OVR::Device_LatencyTester << 8)|1),
-  Message_LatencyTestStarted = ((OVR::Device_LatencyTester << 8)|2),
-  Message_LatencyTestButton = ((OVR::Device_LatencyTester << 8)|3)
+  Message_DeviceAdded = ((DeviceType.Device_Manager << 8)|0),
+  Message_DeviceRemoved = ((DeviceType.Device_Manager << 8)|1),
+  Message_BodyFrame = ((DeviceType.Device_Sensor << 8)|0),
+  Message_LatencyTestSamples = ((DeviceType.Device_LatencyTester << 8)|0),
+  Message_LatencyTestColorDetected = ((DeviceType.Device_LatencyTester << 8)|1),
+  Message_LatencyTestStarted = ((DeviceType.Device_LatencyTester << 8)|2),
+  Message_LatencyTestButton = ((DeviceType.Device_LatencyTester << 8)|3)
 }
 
 class Message {
@@ -2155,16 +2155,16 @@ class SensorFusion : NewOverrideBase {
     }
   }
 
-  public this(SWIGTYPE_p_SensorDevice sensor) {
-    this(ovr_im.new_SensorFusion__SWIG_0(SWIGTYPE_p_SensorDevice.swigGetCPtr(sensor)), true);
+  public this(SensorDevice sensor) {
+    this(ovr_im.new_SensorFusion__SWIG_0(SensorDevice.swigGetCPtr(sensor)), true);
   }
 
   public this() {
     this(ovr_im.new_SensorFusion__SWIG_1(), true);
   }
 
-  public bool AttachToSensor(SWIGTYPE_p_SensorDevice sensor) {
-    bool ret = ovr_im.SensorFusion_AttachToSensor(cast(void*)swigCPtr, SWIGTYPE_p_SensorDevice.swigGetCPtr(sensor)) ? true : false;
+  public bool AttachToSensor(SensorDevice sensor) {
+    bool ret = ovr_im.SensorFusion_AttachToSensor(cast(void*)swigCPtr, SensorDevice.swigGetCPtr(sensor)) ? true : false;
     return ret;
   }
 
@@ -2850,7 +2850,7 @@ class DeviceBase : NewOverrideBase {
   }
 
   enum {
-    EnumDeviceType = OVR::Device_All
+    EnumDeviceType = DeviceType.Device_All
   }
 
   public void AddRef() {
@@ -3054,7 +3054,7 @@ class DeviceManager : DeviceBase {
   }
 
   enum {
-    EnumDeviceType = OVR::Device_Manager
+    EnumDeviceType = DeviceType.Device_Manager
   }
 
   public override DeviceType GetType() const {
@@ -3295,7 +3295,7 @@ class HMDDevice : DeviceBase {
   }
 
   enum {
-    EnumDeviceType = OVR::Device_HMD
+    EnumDeviceType = DeviceType.Device_HMD
   }
 
   public override DeviceType GetType() const {
@@ -3521,7 +3521,7 @@ class SensorDevice : HIDDeviceBase {
   }
 
   enum {
-    EnumDeviceType = OVR::Device_Sensor
+    EnumDeviceType = DeviceType.Device_Sensor
   }
 
   enum CoordinateFrame {
@@ -3529,7 +3529,7 @@ class SensorDevice : HIDDeviceBase {
     Coord_HMD = 1
   }
 
-  public override DeviceType GetType() const {
+  public DeviceType GetType() const {
     DeviceType ret = cast(DeviceType)ovr_im.SensorDevice_GetType(cast(void*)swigCPtr);
     return ret;
   }
@@ -3722,10 +3722,10 @@ class LatencyTestDevice : HIDDeviceBase {
   }
 
   enum {
-    EnumDeviceType = OVR::Device_LatencyTester
+    EnumDeviceType = DeviceType.Device_LatencyTester
   }
 
-  public override DeviceType GetType() const {
+  public DeviceType GetType() const {
     DeviceType ret = cast(DeviceType)ovr_im.LatencyTestDevice_GetType(cast(void*)swigCPtr);
     return ret;
   }
@@ -4605,24 +4605,6 @@ class JSON {
     string ret = std.conv.to!string(ovr_im.JSON_GetArrayString(cast(void*)swigCPtr, index));
     return ret;
   }
-}
-
-class SWIGTYPE_p_SensorDevice {
-  private void* swigCPtr;
-
-  public this(void* cObject, bool futureUse) {
-    swigCPtr = cObject;
-  }
-
-  protected this() {
-    swigCPtr = null;
-  }
-
-  public static void* swigGetCPtr(SWIGTYPE_p_SensorDevice obj) {
-    return (obj is null) ? null : obj.swigCPtr;
-  }
-
-  mixin ovr_im.SwigOperatorDefinitions;
 }
 
 class SWIGTYPE_p_wchar_t {
