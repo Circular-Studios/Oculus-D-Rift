@@ -1607,74 +1607,6 @@ SWIGEXPORT void D_delete_AtomicOpsRawBase(void * jarg1) {
 }
 
 
-SWIGEXPORT void * D_AtomicOpsRaw_4ByteImpl_Exchange_NoSync(void * jarg1, void * jarg2) {
-  void * jresult ;
-  OVR::AtomicOpsRaw_4ByteImpl::T *arg1 = (OVR::AtomicOpsRaw_4ByteImpl::T *) 0 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T arg2 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T *argp2 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T result;
-  
-  arg1 = (OVR::AtomicOpsRaw_4ByteImpl::T *)jarg1;
-  argp2 = (OVR::AtomicOpsRaw_4ByteImpl::T *)jarg2;
-  if (!argp2) {
-    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::AtomicOpsRaw_4ByteImpl::T");
-    return 0;
-  }
-  arg2 = *argp2; 
-  result = OVR::AtomicOpsRaw_4ByteImpl::Exchange_NoSync((LONG volatile *)arg1,arg2);
-  jresult = new OVR::AtomicOpsRaw_4ByteImpl::T((const OVR::AtomicOpsRaw_4ByteImpl::T &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT void * D_AtomicOpsRaw_4ByteImpl_ExchangeAdd_NoSync(void * jarg1, void * jarg2) {
-  void * jresult ;
-  OVR::AtomicOpsRaw_4ByteImpl::T *arg1 = (OVR::AtomicOpsRaw_4ByteImpl::T *) 0 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T arg2 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T *argp2 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T result;
-  
-  arg1 = (OVR::AtomicOpsRaw_4ByteImpl::T *)jarg1;
-  argp2 = (OVR::AtomicOpsRaw_4ByteImpl::T *)jarg2;
-  if (!argp2) {
-    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::AtomicOpsRaw_4ByteImpl::T");
-    return 0;
-  }
-  arg2 = *argp2; 
-  result = OVR::AtomicOpsRaw_4ByteImpl::ExchangeAdd_NoSync((LONG volatile *)arg1,arg2);
-  jresult = new OVR::AtomicOpsRaw_4ByteImpl::T((const OVR::AtomicOpsRaw_4ByteImpl::T &)result); 
-  return jresult;
-}
-
-
-SWIGEXPORT unsigned int D_AtomicOpsRaw_4ByteImpl_CompareAndSet_NoSync(void * jarg1, void * jarg2, void * jarg3) {
-  unsigned int jresult ;
-  OVR::AtomicOpsRaw_4ByteImpl::T *arg1 = (OVR::AtomicOpsRaw_4ByteImpl::T *) 0 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T arg2 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T arg3 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T *argp2 ;
-  OVR::AtomicOpsRaw_4ByteImpl::T *argp3 ;
-  bool result;
-  
-  arg1 = (OVR::AtomicOpsRaw_4ByteImpl::T *)jarg1;
-  argp2 = (OVR::AtomicOpsRaw_4ByteImpl::T *)jarg2;
-  if (!argp2) {
-    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::AtomicOpsRaw_4ByteImpl::T");
-    return 0;
-  }
-  arg2 = *argp2; 
-  argp3 = (OVR::AtomicOpsRaw_4ByteImpl::T *)jarg3;
-  if (!argp3) {
-    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::AtomicOpsRaw_4ByteImpl::T");
-    return 0;
-  }
-  arg3 = *argp3; 
-  result = (bool)OVR::AtomicOpsRaw_4ByteImpl::CompareAndSet_NoSync((LONG volatile *)arg1,arg2,arg3);
-  jresult = result;
-  return jresult;
-}
-
-
 SWIGEXPORT void * D_new_AtomicOpsRaw_4ByteImpl() {
   void * jresult ;
   OVR::AtomicOpsRaw_4ByteImpl *result = 0 ;
@@ -1708,6 +1640,48 @@ SWIGEXPORT void D_delete_AtomicOpsRaw_8ByteImpl(void * jarg1) {
   
   arg1 = (OVR::AtomicOpsRaw_8ByteImpl *)jarg1;
   delete arg1;
+}
+
+
+SWIGEXPORT void D_Lock_RecursiveAttr_set(void * jarg1) {
+  pthread_mutexattr_t arg1 ;
+  pthread_mutexattr_t *argp1 ;
+  
+  argp1 = (pthread_mutexattr_t *)jarg1;
+  if (!argp1) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null pthread_mutexattr_t");
+    return ;
+  }
+  arg1 = *argp1; 
+  OVR::Lock::RecursiveAttr = arg1;
+}
+
+
+SWIGEXPORT void * D_Lock_RecursiveAttr_get() {
+  void * jresult ;
+  pthread_mutexattr_t result;
+  
+  result = OVR::Lock::RecursiveAttr;
+  jresult = new pthread_mutexattr_t((const pthread_mutexattr_t &)result); 
+  return jresult;
+}
+
+
+SWIGEXPORT void D_Lock_RecursiveAttrInit_set(unsigned int jarg1) {
+  bool arg1 ;
+  
+  arg1 = jarg1 ? true : false;
+  OVR::Lock::RecursiveAttrInit = arg1;
+}
+
+
+SWIGEXPORT unsigned int D_Lock_RecursiveAttrInit_get() {
+  unsigned int jresult ;
+  bool result;
+  
+  result = (bool)OVR::Lock::RecursiveAttrInit;
+  jresult = result;
+  return jresult;
 }
 
 
@@ -1973,22 +1947,22 @@ SWIGEXPORT size_t D_String_GetLength(void * jarg1) {
 }
 
 
-SWIGEXPORT unsigned long D_String_GetCharAt(void * jarg1, size_t jarg2) {
-  unsigned long jresult ;
+SWIGEXPORT void * D_String_GetCharAt(void * jarg1, size_t jarg2) {
+  void * jresult ;
   OVR::String *arg1 = (OVR::String *) 0 ;
   OVR::UPInt arg2 ;
   OVR::UInt32 result;
   
   arg1 = (OVR::String *)jarg1;
   arg2 = (OVR::UPInt)jarg2;
-  result = (OVR::UInt32)((OVR::String const *)arg1)->GetCharAt(arg2);
-  jresult = (unsigned long)result;
+  result = ((OVR::String const *)arg1)->GetCharAt(arg2);
+  jresult = new OVR::UInt32((const OVR::UInt32 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT unsigned long D_String_GetFirstCharAt(void * jarg1, size_t jarg2, void * jarg3) {
-  unsigned long jresult ;
+SWIGEXPORT void * D_String_GetFirstCharAt(void * jarg1, size_t jarg2, void * jarg3) {
+  void * jresult ;
   OVR::String *arg1 = (OVR::String *) 0 ;
   OVR::UPInt arg2 ;
   char **arg3 = (char **) 0 ;
@@ -1997,32 +1971,38 @@ SWIGEXPORT unsigned long D_String_GetFirstCharAt(void * jarg1, size_t jarg2, voi
   arg1 = (OVR::String *)jarg1;
   arg2 = (OVR::UPInt)jarg2;
   arg3 = (char **)jarg3;
-  result = (OVR::UInt32)((OVR::String const *)arg1)->GetFirstCharAt(arg2,(char const **)arg3);
-  jresult = (unsigned long)result;
+  result = ((OVR::String const *)arg1)->GetFirstCharAt(arg2,(char const **)arg3);
+  jresult = new OVR::UInt32((const OVR::UInt32 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT unsigned long D_String_GetNextChar(void * jarg1, void * jarg2) {
-  unsigned long jresult ;
+SWIGEXPORT void * D_String_GetNextChar(void * jarg1, void * jarg2) {
+  void * jresult ;
   OVR::String *arg1 = (OVR::String *) 0 ;
   char **arg2 = (char **) 0 ;
   OVR::UInt32 result;
   
   arg1 = (OVR::String *)jarg1;
   arg2 = (char **)jarg2;
-  result = (OVR::UInt32)((OVR::String const *)arg1)->GetNextChar((char const **)arg2);
-  jresult = (unsigned long)result;
+  result = ((OVR::String const *)arg1)->GetNextChar((char const **)arg2);
+  jresult = new OVR::UInt32((const OVR::UInt32 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void D_String_AppendChar(void * jarg1, unsigned long jarg2) {
+SWIGEXPORT void D_String_AppendChar(void * jarg1, void * jarg2) {
   OVR::String *arg1 = (OVR::String *) 0 ;
   OVR::UInt32 arg2 ;
+  OVR::UInt32 *argp2 ;
   
   arg1 = (OVR::String *)jarg1;
-  arg2 = (OVR::UInt32)jarg2;
+  argp2 = (OVR::UInt32 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt32");
+    return ;
+  }
+  arg2 = *argp2; 
   (arg1)->AppendChar(arg2);
 }
 
@@ -2219,15 +2199,21 @@ SWIGEXPORT void * D_String_Insert__SWIG_1(void * jarg1, char * jarg2, size_t jar
 }
 
 
-SWIGEXPORT size_t D_String_InsertCharAt(void * jarg1, unsigned long jarg2, size_t jarg3) {
+SWIGEXPORT size_t D_String_InsertCharAt(void * jarg1, void * jarg2, size_t jarg3) {
   size_t jresult ;
   OVR::String *arg1 = (OVR::String *) 0 ;
   OVR::UInt32 arg2 ;
   OVR::UPInt arg3 ;
+  OVR::UInt32 *argp2 ;
   OVR::UPInt result;
   
   arg1 = (OVR::String *)jarg1;
-  arg2 = (OVR::UInt32)jarg2;
+  argp2 = (OVR::UInt32 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt32");
+    return 0;
+  }
+  arg2 = *argp2; 
   arg3 = (OVR::UPInt)jarg3;
   result = (arg1)->InsertCharAt(arg2,arg3);
   jresult = result;
@@ -2909,22 +2895,22 @@ SWIGEXPORT size_t D_StringBuffer_GetLength(void * jarg1) {
 }
 
 
-SWIGEXPORT unsigned long D_StringBuffer_GetCharAt(void * jarg1, size_t jarg2) {
-  unsigned long jresult ;
+SWIGEXPORT void * D_StringBuffer_GetCharAt(void * jarg1, size_t jarg2) {
+  void * jresult ;
   OVR::StringBuffer *arg1 = (OVR::StringBuffer *) 0 ;
   OVR::UPInt arg2 ;
   OVR::UInt32 result;
   
   arg1 = (OVR::StringBuffer *)jarg1;
   arg2 = (OVR::UPInt)jarg2;
-  result = (OVR::UInt32)((OVR::StringBuffer const *)arg1)->GetCharAt(arg2);
-  jresult = (unsigned long)result;
+  result = ((OVR::StringBuffer const *)arg1)->GetCharAt(arg2);
+  jresult = new OVR::UInt32((const OVR::UInt32 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT unsigned long D_StringBuffer_GetFirstCharAt(void * jarg1, size_t jarg2, void * jarg3) {
-  unsigned long jresult ;
+SWIGEXPORT void * D_StringBuffer_GetFirstCharAt(void * jarg1, size_t jarg2, void * jarg3) {
+  void * jresult ;
   OVR::StringBuffer *arg1 = (OVR::StringBuffer *) 0 ;
   OVR::UPInt arg2 ;
   char **arg3 = (char **) 0 ;
@@ -2933,22 +2919,22 @@ SWIGEXPORT unsigned long D_StringBuffer_GetFirstCharAt(void * jarg1, size_t jarg
   arg1 = (OVR::StringBuffer *)jarg1;
   arg2 = (OVR::UPInt)jarg2;
   arg3 = (char **)jarg3;
-  result = (OVR::UInt32)((OVR::StringBuffer const *)arg1)->GetFirstCharAt(arg2,(char const **)arg3);
-  jresult = (unsigned long)result;
+  result = ((OVR::StringBuffer const *)arg1)->GetFirstCharAt(arg2,(char const **)arg3);
+  jresult = new OVR::UInt32((const OVR::UInt32 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT unsigned long D_StringBuffer_GetNextChar(void * jarg1, void * jarg2) {
-  unsigned long jresult ;
+SWIGEXPORT void * D_StringBuffer_GetNextChar(void * jarg1, void * jarg2) {
+  void * jresult ;
   OVR::StringBuffer *arg1 = (OVR::StringBuffer *) 0 ;
   char **arg2 = (char **) 0 ;
   OVR::UInt32 result;
   
   arg1 = (OVR::StringBuffer *)jarg1;
   arg2 = (char **)jarg2;
-  result = (OVR::UInt32)((OVR::StringBuffer const *)arg1)->GetNextChar((char const **)arg2);
-  jresult = (unsigned long)result;
+  result = ((OVR::StringBuffer const *)arg1)->GetNextChar((char const **)arg2);
+  jresult = new OVR::UInt32((const OVR::UInt32 &)result); 
   return jresult;
 }
 
@@ -2973,12 +2959,18 @@ SWIGEXPORT void D_StringBuffer_Reserve(void * jarg1, size_t jarg2) {
 }
 
 
-SWIGEXPORT void D_StringBuffer_AppendChar(void * jarg1, unsigned long jarg2) {
+SWIGEXPORT void D_StringBuffer_AppendChar(void * jarg1, void * jarg2) {
   OVR::StringBuffer *arg1 = (OVR::StringBuffer *) 0 ;
   OVR::UInt32 arg2 ;
+  OVR::UInt32 *argp2 ;
   
   arg1 = (OVR::StringBuffer *)jarg1;
-  arg2 = (OVR::UInt32)jarg2;
+  argp2 = (OVR::UInt32 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt32");
+    return ;
+  }
+  arg2 = *argp2; 
   (arg1)->AppendChar(arg2);
 }
 
@@ -3082,15 +3074,21 @@ SWIGEXPORT void D_StringBuffer_Insert__SWIG_1(void * jarg1, char * jarg2, size_t
 }
 
 
-SWIGEXPORT size_t D_StringBuffer_InsertCharAt(void * jarg1, unsigned long jarg2, size_t jarg3) {
+SWIGEXPORT size_t D_StringBuffer_InsertCharAt(void * jarg1, void * jarg2, size_t jarg3) {
   size_t jresult ;
   OVR::StringBuffer *arg1 = (OVR::StringBuffer *) 0 ;
   OVR::UInt32 arg2 ;
   OVR::UPInt arg3 ;
+  OVR::UInt32 *argp2 ;
   OVR::UPInt result;
   
   arg1 = (OVR::StringBuffer *)jarg1;
-  arg2 = (OVR::UInt32)jarg2;
+  argp2 = (OVR::UInt32 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt32");
+    return 0;
+  }
+  arg2 = *argp2; 
   arg3 = (OVR::UPInt)jarg3;
   result = (arg1)->InsertCharAt(arg2,arg3);
   jresult = result;
@@ -3978,24 +3976,30 @@ SWIGEXPORT void * D_new_MessageLatencyTestColorDetected(void * jarg1) {
 }
 
 
-SWIGEXPORT void D_MessageLatencyTestColorDetected_Elapsed_set(void * jarg1, unsigned short jarg2) {
+SWIGEXPORT void D_MessageLatencyTestColorDetected_Elapsed_set(void * jarg1, void * jarg2) {
   OVR::MessageLatencyTestColorDetected *arg1 = (OVR::MessageLatencyTestColorDetected *) 0 ;
   OVR::UInt16 arg2 ;
+  OVR::UInt16 *argp2 ;
   
   arg1 = (OVR::MessageLatencyTestColorDetected *)jarg1;
-  arg2 = (OVR::UInt16)jarg2;
+  argp2 = (OVR::UInt16 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt16");
+    return ;
+  }
+  arg2 = *argp2; 
   if (arg1) (arg1)->Elapsed = arg2;
 }
 
 
-SWIGEXPORT unsigned short D_MessageLatencyTestColorDetected_Elapsed_get(void * jarg1) {
-  unsigned short jresult ;
+SWIGEXPORT void * D_MessageLatencyTestColorDetected_Elapsed_get(void * jarg1) {
+  void * jresult ;
   OVR::MessageLatencyTestColorDetected *arg1 = (OVR::MessageLatencyTestColorDetected *) 0 ;
   OVR::UInt16 result;
   
   arg1 = (OVR::MessageLatencyTestColorDetected *)jarg1;
-  result = (OVR::UInt16) ((arg1)->Elapsed);
-  jresult = result;
+  result =  ((arg1)->Elapsed);
+  jresult = new OVR::UInt16((const OVR::UInt16 &)result); 
   return jresult;
 }
 
@@ -5123,32 +5127,44 @@ SWIGEXPORT void D_delete_HIDDeviceBase(void * jarg1) {
 }
 
 
-SWIGEXPORT unsigned int D_HIDDeviceBase_SetFeatureReport(void * jarg1, void * jarg2, unsigned long jarg3) {
+SWIGEXPORT unsigned int D_HIDDeviceBase_SetFeatureReport(void * jarg1, void * jarg2, void * jarg3) {
   unsigned int jresult ;
   OVR::HIDDeviceBase *arg1 = (OVR::HIDDeviceBase *) 0 ;
   OVR::UByte *arg2 = (OVR::UByte *) 0 ;
   OVR::UInt32 arg3 ;
+  OVR::UInt32 *argp3 ;
   bool result;
   
   arg1 = (OVR::HIDDeviceBase *)jarg1;
   arg2 = (OVR::UByte *)jarg2;
-  arg3 = (OVR::UInt32)jarg3;
+  argp3 = (OVR::UInt32 *)jarg3;
+  if (!argp3) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt32");
+    return 0;
+  }
+  arg3 = *argp3; 
   result = (bool)(arg1)->SetFeatureReport(arg2,arg3);
   jresult = result;
   return jresult;
 }
 
 
-SWIGEXPORT unsigned int D_HIDDeviceBase_GetFeatureReport(void * jarg1, void * jarg2, unsigned long jarg3) {
+SWIGEXPORT unsigned int D_HIDDeviceBase_GetFeatureReport(void * jarg1, void * jarg2, void * jarg3) {
   unsigned int jresult ;
   OVR::HIDDeviceBase *arg1 = (OVR::HIDDeviceBase *) 0 ;
   OVR::UByte *arg2 = (OVR::UByte *) 0 ;
   OVR::UInt32 arg3 ;
+  OVR::UInt32 *argp3 ;
   bool result;
   
   arg1 = (OVR::HIDDeviceBase *)jarg1;
   arg2 = (OVR::UByte *)jarg2;
-  arg3 = (OVR::UInt32)jarg3;
+  argp3 = (OVR::UInt32 *)jarg3;
+  if (!argp3) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt32");
+    return 0;
+  }
+  arg3 = *argp3; 
   result = (bool)(arg1)->GetFeatureReport(arg2,arg3);
   jresult = result;
   return jresult;
@@ -6192,46 +6208,58 @@ SWIGEXPORT void * D_new_SensorInfo() {
 }
 
 
-SWIGEXPORT void D_SensorInfo_VendorId_set(void * jarg1, unsigned short jarg2) {
+SWIGEXPORT void D_SensorInfo_VendorId_set(void * jarg1, void * jarg2) {
   OVR::SensorInfo *arg1 = (OVR::SensorInfo *) 0 ;
   OVR::UInt16 arg2 ;
+  OVR::UInt16 *argp2 ;
   
   arg1 = (OVR::SensorInfo *)jarg1;
-  arg2 = (OVR::UInt16)jarg2;
+  argp2 = (OVR::UInt16 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt16");
+    return ;
+  }
+  arg2 = *argp2; 
   if (arg1) (arg1)->VendorId = arg2;
 }
 
 
-SWIGEXPORT unsigned short D_SensorInfo_VendorId_get(void * jarg1) {
-  unsigned short jresult ;
+SWIGEXPORT void * D_SensorInfo_VendorId_get(void * jarg1) {
+  void * jresult ;
   OVR::SensorInfo *arg1 = (OVR::SensorInfo *) 0 ;
   OVR::UInt16 result;
   
   arg1 = (OVR::SensorInfo *)jarg1;
-  result = (OVR::UInt16) ((arg1)->VendorId);
-  jresult = result;
+  result =  ((arg1)->VendorId);
+  jresult = new OVR::UInt16((const OVR::UInt16 &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void D_SensorInfo_ProductId_set(void * jarg1, unsigned short jarg2) {
+SWIGEXPORT void D_SensorInfo_ProductId_set(void * jarg1, void * jarg2) {
   OVR::SensorInfo *arg1 = (OVR::SensorInfo *) 0 ;
   OVR::UInt16 arg2 ;
+  OVR::UInt16 *argp2 ;
   
   arg1 = (OVR::SensorInfo *)jarg1;
-  arg2 = (OVR::UInt16)jarg2;
+  argp2 = (OVR::UInt16 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt16");
+    return ;
+  }
+  arg2 = *argp2; 
   if (arg1) (arg1)->ProductId = arg2;
 }
 
 
-SWIGEXPORT unsigned short D_SensorInfo_ProductId_get(void * jarg1) {
-  unsigned short jresult ;
+SWIGEXPORT void * D_SensorInfo_ProductId_get(void * jarg1) {
+  void * jresult ;
   OVR::SensorInfo *arg1 = (OVR::SensorInfo *) 0 ;
   OVR::UInt16 result;
   
   arg1 = (OVR::SensorInfo *)jarg1;
-  result = (OVR::UInt16) ((arg1)->ProductId);
-  jresult = result;
+  result =  ((arg1)->ProductId);
+  jresult = new OVR::UInt16((const OVR::UInt16 &)result); 
   return jresult;
 }
 
@@ -6499,60 +6527,84 @@ SWIGEXPORT void D_delete_LatencyTestConfiguration(void * jarg1) {
 }
 
 
-SWIGEXPORT void * D_new_LatencyTestDisplay(unsigned char jarg1, unsigned long jarg2) {
+SWIGEXPORT void * D_new_LatencyTestDisplay(void * jarg1, void * jarg2) {
   void * jresult ;
   OVR::UByte arg1 ;
   OVR::UInt32 arg2 ;
+  OVR::UByte *argp1 ;
+  OVR::UInt32 *argp2 ;
   OVR::LatencyTestDisplay *result = 0 ;
   
-  arg1 = (OVR::UByte)jarg1;
-  arg2 = (OVR::UInt32)jarg2;
+  argp1 = (OVR::UByte *)jarg1;
+  if (!argp1) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UByte");
+    return 0;
+  }
+  arg1 = *argp1; 
+  argp2 = (OVR::UInt32 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt32");
+    return 0;
+  }
+  arg2 = *argp2; 
   result = (OVR::LatencyTestDisplay *)new OVR::LatencyTestDisplay(arg1,arg2);
   jresult = (void *)result;
   return jresult;
 }
 
 
-SWIGEXPORT void D_LatencyTestDisplay_Mode_set(void * jarg1, unsigned char jarg2) {
+SWIGEXPORT void D_LatencyTestDisplay_Mode_set(void * jarg1, void * jarg2) {
   OVR::LatencyTestDisplay *arg1 = (OVR::LatencyTestDisplay *) 0 ;
   OVR::UByte arg2 ;
+  OVR::UByte *argp2 ;
   
   arg1 = (OVR::LatencyTestDisplay *)jarg1;
-  arg2 = (OVR::UByte)jarg2;
+  argp2 = (OVR::UByte *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UByte");
+    return ;
+  }
+  arg2 = *argp2; 
   if (arg1) (arg1)->Mode = arg2;
 }
 
 
-SWIGEXPORT unsigned char D_LatencyTestDisplay_Mode_get(void * jarg1) {
-  unsigned char jresult ;
+SWIGEXPORT void * D_LatencyTestDisplay_Mode_get(void * jarg1) {
+  void * jresult ;
   OVR::LatencyTestDisplay *arg1 = (OVR::LatencyTestDisplay *) 0 ;
   OVR::UByte result;
   
   arg1 = (OVR::LatencyTestDisplay *)jarg1;
-  result = (OVR::UByte) ((arg1)->Mode);
-  jresult = result;
+  result =  ((arg1)->Mode);
+  jresult = new OVR::UByte((const OVR::UByte &)result); 
   return jresult;
 }
 
 
-SWIGEXPORT void D_LatencyTestDisplay_Value_set(void * jarg1, unsigned long jarg2) {
+SWIGEXPORT void D_LatencyTestDisplay_Value_set(void * jarg1, void * jarg2) {
   OVR::LatencyTestDisplay *arg1 = (OVR::LatencyTestDisplay *) 0 ;
   OVR::UInt32 arg2 ;
+  OVR::UInt32 *argp2 ;
   
   arg1 = (OVR::LatencyTestDisplay *)jarg1;
-  arg2 = (OVR::UInt32)jarg2;
+  argp2 = (OVR::UInt32 *)jarg2;
+  if (!argp2) {
+    SWIG_DSetPendingException(SWIG_DIllegalArgumentException, "Attempt to dereference null OVR::UInt32");
+    return ;
+  }
+  arg2 = *argp2; 
   if (arg1) (arg1)->Value = arg2;
 }
 
 
-SWIGEXPORT unsigned long D_LatencyTestDisplay_Value_get(void * jarg1) {
-  unsigned long jresult ;
+SWIGEXPORT void * D_LatencyTestDisplay_Value_get(void * jarg1) {
+  void * jresult ;
   OVR::LatencyTestDisplay *arg1 = (OVR::LatencyTestDisplay *) 0 ;
   OVR::UInt32 result;
   
   arg1 = (OVR::LatencyTestDisplay *)jarg1;
-  result = (OVR::UInt32) ((arg1)->Value);
-  jresult = (unsigned long)result;
+  result =  ((arg1)->Value);
+  jresult = new OVR::UInt32((const OVR::UInt32 &)result); 
   return jresult;
 }
 

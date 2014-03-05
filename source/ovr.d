@@ -803,24 +803,6 @@ class AtomicOpsRaw_4ByteImpl : AtomicOpsRawBase {
     }
   }
 
-  public static SWIGTYPE_p_LONG Exchange_NoSync(SWIGTYPE_p_LONG p, SWIGTYPE_p_LONG val) {
-    SWIGTYPE_p_LONG ret = new SWIGTYPE_p_LONG(ovr_im.AtomicOpsRaw_4ByteImpl_Exchange_NoSync(SWIGTYPE_p_LONG.swigGetCPtr(p), SWIGTYPE_p_LONG.swigGetCPtr(val)), true);
-    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
-    return ret;
-  }
-
-  public static SWIGTYPE_p_LONG ExchangeAdd_NoSync(SWIGTYPE_p_LONG p, SWIGTYPE_p_LONG val) {
-    SWIGTYPE_p_LONG ret = new SWIGTYPE_p_LONG(ovr_im.AtomicOpsRaw_4ByteImpl_ExchangeAdd_NoSync(SWIGTYPE_p_LONG.swigGetCPtr(p), SWIGTYPE_p_LONG.swigGetCPtr(val)), true);
-    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
-    return ret;
-  }
-
-  public static bool CompareAndSet_NoSync(SWIGTYPE_p_LONG p, SWIGTYPE_p_LONG c, SWIGTYPE_p_LONG val) {
-    bool ret = ovr_im.AtomicOpsRaw_4ByteImpl_CompareAndSet_NoSync(SWIGTYPE_p_LONG.swigGetCPtr(p), SWIGTYPE_p_LONG.swigGetCPtr(c), SWIGTYPE_p_LONG.swigGetCPtr(val)) ? true : false;
-    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
-    return ret;
-  }
-
   public this() {
     this(ovr_im.new_AtomicOpsRaw_4ByteImpl(), true);
   }
@@ -893,8 +875,28 @@ class Lock {
     }
   }
 
-  public this(uint spinCount) {
-    this(ovr_im.new_Lock__SWIG_0(spinCount), true);
+  public static void RecursiveAttr(SWIGTYPE_p_pthread_mutexattr_t value) @property {
+    ovr_im.Lock_RecursiveAttr_set(SWIGTYPE_p_pthread_mutexattr_t.swigGetCPtr(value));
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
+  }
+
+  public static SWIGTYPE_p_pthread_mutexattr_t RecursiveAttr() @property {
+    SWIGTYPE_p_pthread_mutexattr_t ret = new SWIGTYPE_p_pthread_mutexattr_t(ovr_im.Lock_RecursiveAttr_get(), true);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
+    return ret;
+  }
+
+  public static void RecursiveAttrInit(bool value) @property {
+    ovr_im.Lock_RecursiveAttrInit_set(value);
+  }
+
+  public static bool RecursiveAttrInit() @property {
+    bool ret = ovr_im.Lock_RecursiveAttrInit_get() ? true : false;
+    return ret;
+  }
+
+  public this(uint dummy) {
+    this(ovr_im.new_Lock__SWIG_0(dummy), true);
   }
 
   public this() {
@@ -1015,23 +1017,24 @@ class String {
     return ret;
   }
 
-  public core.stdc.config.c_ulong GetCharAt(size_t index) const {
-    auto ret = ovr_im.String_GetCharAt(cast(void*)swigCPtr, index);
+  public SWIGTYPE_p_uint32_t GetCharAt(size_t index) const {
+    SWIGTYPE_p_uint32_t ret = new SWIGTYPE_p_uint32_t(ovr_im.String_GetCharAt(cast(void*)swigCPtr, index), true);
     return ret;
   }
 
-  public core.stdc.config.c_ulong GetFirstCharAt(size_t index, char** offset) const {
-    auto ret = ovr_im.String_GetFirstCharAt(cast(void*)swigCPtr, index, cast(void*)offset);
+  public SWIGTYPE_p_uint32_t GetFirstCharAt(size_t index, char** offset) const {
+    SWIGTYPE_p_uint32_t ret = new SWIGTYPE_p_uint32_t(ovr_im.String_GetFirstCharAt(cast(void*)swigCPtr, index, cast(void*)offset), true);
     return ret;
   }
 
-  public core.stdc.config.c_ulong GetNextChar(char** offset) const {
-    auto ret = ovr_im.String_GetNextChar(cast(void*)swigCPtr, cast(void*)offset);
+  public SWIGTYPE_p_uint32_t GetNextChar(char** offset) const {
+    SWIGTYPE_p_uint32_t ret = new SWIGTYPE_p_uint32_t(ovr_im.String_GetNextChar(cast(void*)swigCPtr, cast(void*)offset), true);
     return ret;
   }
 
-  public void AppendChar(core.stdc.config.c_ulong ch) {
-    ovr_im.String_AppendChar(cast(void*)swigCPtr, ch);
+  public void AppendChar(SWIGTYPE_p_uint32_t ch) {
+    ovr_im.String_AppendChar(cast(void*)swigCPtr, SWIGTYPE_p_uint32_t.swigGetCPtr(ch));
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
   }
 
   public void AppendString(SWIGTYPE_p_wchar_t pstr, SWIGTYPE_p_ptrdiff_t len) {
@@ -1096,8 +1099,9 @@ class String {
     return ret;
   }
 
-  public size_t InsertCharAt(core.stdc.config.c_ulong c, size_t posAt) {
-    auto ret = ovr_im.String_InsertCharAt(cast(void*)swigCPtr, c, posAt);
+  public size_t InsertCharAt(SWIGTYPE_p_uint32_t c, size_t posAt) {
+    auto ret = ovr_im.String_InsertCharAt(cast(void*)swigCPtr, SWIGTYPE_p_uint32_t.swigGetCPtr(c), posAt);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 
@@ -1378,18 +1382,18 @@ class StringBuffer {
     return ret;
   }
 
-  public core.stdc.config.c_ulong GetCharAt(size_t index) const {
-    auto ret = ovr_im.StringBuffer_GetCharAt(cast(void*)swigCPtr, index);
+  public SWIGTYPE_p_uint32_t GetCharAt(size_t index) const {
+    SWIGTYPE_p_uint32_t ret = new SWIGTYPE_p_uint32_t(ovr_im.StringBuffer_GetCharAt(cast(void*)swigCPtr, index), true);
     return ret;
   }
 
-  public core.stdc.config.c_ulong GetFirstCharAt(size_t index, char** offset) const {
-    auto ret = ovr_im.StringBuffer_GetFirstCharAt(cast(void*)swigCPtr, index, cast(void*)offset);
+  public SWIGTYPE_p_uint32_t GetFirstCharAt(size_t index, char** offset) const {
+    SWIGTYPE_p_uint32_t ret = new SWIGTYPE_p_uint32_t(ovr_im.StringBuffer_GetFirstCharAt(cast(void*)swigCPtr, index, cast(void*)offset), true);
     return ret;
   }
 
-  public core.stdc.config.c_ulong GetNextChar(char** offset) const {
-    auto ret = ovr_im.StringBuffer_GetNextChar(cast(void*)swigCPtr, cast(void*)offset);
+  public SWIGTYPE_p_uint32_t GetNextChar(char** offset) const {
+    SWIGTYPE_p_uint32_t ret = new SWIGTYPE_p_uint32_t(ovr_im.StringBuffer_GetNextChar(cast(void*)swigCPtr, cast(void*)offset), true);
     return ret;
   }
 
@@ -1401,8 +1405,9 @@ class StringBuffer {
     ovr_im.StringBuffer_Reserve(cast(void*)swigCPtr, _size);
   }
 
-  public void AppendChar(core.stdc.config.c_ulong ch) {
-    ovr_im.StringBuffer_AppendChar(cast(void*)swigCPtr, ch);
+  public void AppendChar(SWIGTYPE_p_uint32_t ch) {
+    ovr_im.StringBuffer_AppendChar(cast(void*)swigCPtr, SWIGTYPE_p_uint32_t.swigGetCPtr(ch));
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
   }
 
   public void AppendString(SWIGTYPE_p_wchar_t pstr, SWIGTYPE_p_ptrdiff_t len) {
@@ -1436,8 +1441,9 @@ class StringBuffer {
     ovr_im.StringBuffer_Insert__SWIG_1(cast(void*)swigCPtr, (substr ? std.string.toStringz(substr) : null), posAt);
   }
 
-  public size_t InsertCharAt(core.stdc.config.c_ulong c, size_t posAt) {
-    auto ret = ovr_im.StringBuffer_InsertCharAt(cast(void*)swigCPtr, c, posAt);
+  public size_t InsertCharAt(SWIGTYPE_p_uint32_t c, size_t posAt) {
+    auto ret = ovr_im.StringBuffer_InsertCharAt(cast(void*)swigCPtr, SWIGTYPE_p_uint32_t.swigGetCPtr(c), posAt);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 
@@ -2001,12 +2007,14 @@ class MessageLatencyTestColorDetected : Message {
     this(ovr_im.new_MessageLatencyTestColorDetected(DeviceBase.swigGetCPtr(dev)), true);
   }
 
-  public void Elapsed(ushort value) @property {
-    ovr_im.MessageLatencyTestColorDetected_Elapsed_set(cast(void*)swigCPtr, value);
+  public void Elapsed(SWIGTYPE_p_uint16_t value) @property {
+    ovr_im.MessageLatencyTestColorDetected_Elapsed_set(cast(void*)swigCPtr, SWIGTYPE_p_uint16_t.swigGetCPtr(value));
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
   }
 
-  public ushort Elapsed() @property const {
-    auto ret = ovr_im.MessageLatencyTestColorDetected_Elapsed_get(cast(void*)swigCPtr);
+  public SWIGTYPE_p_uint16_t Elapsed() @property const {
+    SWIGTYPE_p_uint16_t ret = new SWIGTYPE_p_uint16_t(ovr_im.MessageLatencyTestColorDetected_Elapsed_get(cast(void*)swigCPtr), true);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 
@@ -2736,13 +2744,15 @@ class HIDDeviceBase {
     }
   }
 
-  public bool SetFeatureReport(ubyte* data, core.stdc.config.c_ulong length) {
-    bool ret = ovr_im.HIDDeviceBase_SetFeatureReport(cast(void*)swigCPtr, cast(void*)data, length) ? true : false;
+  public bool SetFeatureReport(SWIGTYPE_p_uint8_t data, SWIGTYPE_p_uint32_t length) {
+    bool ret = ovr_im.HIDDeviceBase_SetFeatureReport(cast(void*)swigCPtr, SWIGTYPE_p_uint8_t.swigGetCPtr(data), SWIGTYPE_p_uint32_t.swigGetCPtr(length)) ? true : false;
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 
-  public bool GetFeatureReport(ubyte* data, core.stdc.config.c_ulong length) {
-    bool ret = ovr_im.HIDDeviceBase_GetFeatureReport(cast(void*)swigCPtr, cast(void*)data, length) ? true : false;
+  public bool GetFeatureReport(SWIGTYPE_p_uint8_t data, SWIGTYPE_p_uint32_t length) {
+    bool ret = ovr_im.HIDDeviceBase_GetFeatureReport(cast(void*)swigCPtr, SWIGTYPE_p_uint8_t.swigGetCPtr(data), SWIGTYPE_p_uint32_t.swigGetCPtr(length)) ? true : false;
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 }
@@ -3437,21 +3447,25 @@ class SensorInfo : DeviceInfo {
     this(ovr_im.new_SensorInfo(), true);
   }
 
-  public void VendorId(ushort value) @property {
-    ovr_im.SensorInfo_VendorId_set(cast(void*)swigCPtr, value);
+  public void VendorId(SWIGTYPE_p_uint16_t value) @property {
+    ovr_im.SensorInfo_VendorId_set(cast(void*)swigCPtr, SWIGTYPE_p_uint16_t.swigGetCPtr(value));
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
   }
 
-  public ushort VendorId() @property const {
-    auto ret = ovr_im.SensorInfo_VendorId_get(cast(void*)swigCPtr);
+  public SWIGTYPE_p_uint16_t VendorId() @property const {
+    SWIGTYPE_p_uint16_t ret = new SWIGTYPE_p_uint16_t(ovr_im.SensorInfo_VendorId_get(cast(void*)swigCPtr), true);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 
-  public void ProductId(ushort value) @property {
-    ovr_im.SensorInfo_ProductId_set(cast(void*)swigCPtr, value);
+  public void ProductId(SWIGTYPE_p_uint16_t value) @property {
+    ovr_im.SensorInfo_ProductId_set(cast(void*)swigCPtr, SWIGTYPE_p_uint16_t.swigGetCPtr(value));
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
   }
 
-  public ushort ProductId() @property const {
-    auto ret = ovr_im.SensorInfo_ProductId_get(cast(void*)swigCPtr);
+  public SWIGTYPE_p_uint16_t ProductId() @property const {
+    SWIGTYPE_p_uint16_t ret = new SWIGTYPE_p_uint16_t(ovr_im.SensorInfo_ProductId_get(cast(void*)swigCPtr), true);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 
@@ -3648,25 +3662,30 @@ class LatencyTestDisplay {
     }
   }
 
-  public this(ubyte mode, core.stdc.config.c_ulong value) {
-    this(ovr_im.new_LatencyTestDisplay(mode, value), true);
+  public this(SWIGTYPE_p_uint8_t mode, SWIGTYPE_p_uint32_t value) {
+    this(ovr_im.new_LatencyTestDisplay(SWIGTYPE_p_uint8_t.swigGetCPtr(mode), SWIGTYPE_p_uint32_t.swigGetCPtr(value)), true);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
   }
 
-  public void Mode(ubyte value) @property {
-    ovr_im.LatencyTestDisplay_Mode_set(cast(void*)swigCPtr, value);
+  public void Mode(SWIGTYPE_p_uint8_t value) @property {
+    ovr_im.LatencyTestDisplay_Mode_set(cast(void*)swigCPtr, SWIGTYPE_p_uint8_t.swigGetCPtr(value));
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
   }
 
-  public ubyte Mode() @property const {
-    auto ret = ovr_im.LatencyTestDisplay_Mode_get(cast(void*)swigCPtr);
+  public SWIGTYPE_p_uint8_t Mode() @property const {
+    SWIGTYPE_p_uint8_t ret = new SWIGTYPE_p_uint8_t(ovr_im.LatencyTestDisplay_Mode_get(cast(void*)swigCPtr), true);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 
-  public void Value(core.stdc.config.c_ulong value) @property {
-    ovr_im.LatencyTestDisplay_Value_set(cast(void*)swigCPtr, value);
+  public void Value(SWIGTYPE_p_uint32_t value) @property {
+    ovr_im.LatencyTestDisplay_Value_set(cast(void*)swigCPtr, SWIGTYPE_p_uint32_t.swigGetCPtr(value));
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
   }
 
-  public core.stdc.config.c_ulong Value() @property const {
-    auto ret = ovr_im.LatencyTestDisplay_Value_get(cast(void*)swigCPtr);
+  public SWIGTYPE_p_uint32_t Value() @property const {
+    SWIGTYPE_p_uint32_t ret = new SWIGTYPE_p_uint32_t(ovr_im.LatencyTestDisplay_Value_get(cast(void*)swigCPtr), true);
+    if (ovr_im.SwigPendingException.isPending) throw ovr_im.SwigPendingException.retrieve();
     return ret;
   }
 }
@@ -4624,7 +4643,7 @@ class SWIGTYPE_p_wchar_t {
   mixin ovr_im.SwigOperatorDefinitions;
 }
 
-class SWIGTYPE_p_LONG {
+class SWIGTYPE_p_uint16_t {
   private void* swigCPtr;
 
   public this(void* cObject, bool futureUse) {
@@ -4635,7 +4654,7 @@ class SWIGTYPE_p_LONG {
     swigCPtr = null;
   }
 
-  public static void* swigGetCPtr(SWIGTYPE_p_LONG obj) {
+  public static void* swigGetCPtr(SWIGTYPE_p_uint16_t obj) {
     return (obj is null) ? null : obj.swigCPtr;
   }
 
@@ -4654,6 +4673,24 @@ class SWIGTYPE_p_OVR__PtrT_OVR__DeviceCreateDesc_t {
   }
 
   public static void* swigGetCPtr(SWIGTYPE_p_OVR__PtrT_OVR__DeviceCreateDesc_t obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin ovr_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_uint32_t {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(SWIGTYPE_p_uint32_t obj) {
     return (obj is null) ? null : obj.swigCPtr;
   }
 
@@ -4876,6 +4913,24 @@ class SWIGTYPE_p_DataDesc {
   mixin ovr_im.SwigOperatorDefinitions;
 }
 
+class SWIGTYPE_p_uint8_t {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(SWIGTYPE_p_uint8_t obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin ovr_im.SwigOperatorDefinitions;
+}
+
 class SWIGTYPE_p_OVR__DeviceEnumeratorT_OVR__DeviceBase_t {
   private void* swigCPtr;
 
@@ -4894,24 +4949,6 @@ class SWIGTYPE_p_OVR__DeviceEnumeratorT_OVR__DeviceBase_t {
   mixin ovr_im.SwigOperatorDefinitions;
 }
 
-class SWIGTYPE_p_OVR__QuatT_float_t {
-  private void* swigCPtr;
-
-  public this(void* cObject, bool futureUse) {
-    swigCPtr = cObject;
-  }
-
-  protected this() {
-    swigCPtr = null;
-  }
-
-  public static void* swigGetCPtr(SWIGTYPE_p_OVR__QuatT_float_t obj) {
-    return (obj is null) ? null : obj.swigCPtr;
-  }
-
-  mixin ovr_im.SwigOperatorDefinitions;
-}
-
 class SWIGTYPE_p_OVR__Vector3T_float_t {
   private void* swigCPtr;
 
@@ -4924,6 +4961,42 @@ class SWIGTYPE_p_OVR__Vector3T_float_t {
   }
 
   public static void* swigGetCPtr(SWIGTYPE_p_OVR__Vector3T_float_t obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin ovr_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_pthread_mutexattr_t {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(SWIGTYPE_p_pthread_mutexattr_t obj) {
+    return (obj is null) ? null : obj.swigCPtr;
+  }
+
+  mixin ovr_im.SwigOperatorDefinitions;
+}
+
+class SWIGTYPE_p_OVR__QuatT_float_t {
+  private void* swigCPtr;
+
+  public this(void* cObject, bool futureUse) {
+    swigCPtr = cObject;
+  }
+
+  protected this() {
+    swigCPtr = null;
+  }
+
+  public static void* swigGetCPtr(SWIGTYPE_p_OVR__QuatT_float_t obj) {
     return (obj is null) ? null : obj.swigCPtr;
   }
 
