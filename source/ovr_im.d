@@ -405,11 +405,9 @@ static this() {
   mixin(bindCode("new_AtomicOpsRaw_8ByteImpl", "D_new_AtomicOpsRaw_8ByteImpl"));
   mixin(bindCode("delete_AtomicOpsRaw_8ByteImpl", "D_delete_AtomicOpsRaw_8ByteImpl"));
   mixin(bindCode("AtomicOpsRaw_8ByteImpl_Upcast", "D_AtomicOpsRaw_8ByteImpl_Upcast"));
-	/*
   mixin(bindCode("new_Lock__SWIG_0", "D_new_Lock__SWIG_0"));
   mixin(bindCode("new_Lock__SWIG_1", "D_new_Lock__SWIG_1"));
   mixin(bindCode("delete_Lock", "D_delete_Lock"));
-	*/
   mixin(bindCode("Lock_DoLock", "D_Lock_DoLock"));
   mixin(bindCode("Lock_Unlock", "D_Lock_Unlock"));
   mixin(bindCode("new_String__SWIG_1", "D_new_String__SWIG_1"));
@@ -422,10 +420,8 @@ static this() {
   mixin(bindCode("new_String__SWIG_8", "D_new_String__SWIG_8"));
   mixin(bindCode("new_String__SWIG_9", "D_new_String__SWIG_9"));
   mixin(bindCode("delete_String", "D_delete_String"));
-	/*
   mixin(bindCode("String_NullData_set", "D_String_NullData_set"));
   mixin(bindCode("String_NullData_get", "D_String_NullData_get"));
-  	*/
   mixin(bindCode("String_Clear", "D_String_Clear"));
   mixin(bindCode("String_ToCStr", "D_String_ToCStr"));
   mixin(bindCode("String_GetSize", "D_String_GetSize"));

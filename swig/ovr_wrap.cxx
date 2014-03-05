@@ -1711,7 +1711,7 @@ SWIGEXPORT void D_delete_AtomicOpsRaw_8ByteImpl(void * jarg1) {
 }
 
 
-/*SWIGEXPORT void * D_new_Lock__SWIG_0(unsigned int jarg1) {
+SWIGEXPORT void * D_new_Lock__SWIG_0(unsigned int jarg1) {
   void * jresult ;
   unsigned int arg1 ;
   OVR::Lock *result = 0 ;
@@ -1738,7 +1738,7 @@ SWIGEXPORT void D_delete_Lock(void * jarg1) {
   
   arg1 = (OVR::Lock *)jarg1;
   delete arg1;
-}*/
+}
 
 
 SWIGEXPORT void D_Lock_DoLock(void * jarg1) {
@@ -1893,7 +1893,7 @@ SWIGEXPORT void D_delete_String(void * jarg1) {
 }
 
 
-/*SWIGEXPORT void D_String_NullData_set(void * jarg1) {
+SWIGEXPORT void D_String_NullData_set(void * jarg1) {
   DataDesc arg1 ;
   DataDesc *argp1 ;
   
@@ -1914,7 +1914,7 @@ SWIGEXPORT void * D_String_NullData_get() {
   result = OVR::String::NullData;
   jresult = new DataDesc((const DataDesc &)result); 
   return jresult;
-}*/
+}
 
 
 SWIGEXPORT void D_String_Clear(void * jarg1) {
