@@ -6,8 +6,5 @@
 	"license": "MIT",
 	"dependencies": {
 	},
-	"targetType": "executable",
-	"libs": [
-		"libovr"
-	]
+	"targetType": "executable"
 }
