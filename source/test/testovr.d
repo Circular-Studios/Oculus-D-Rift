@@ -12,11 +12,12 @@ void main()
 	HMDDevice pHMD;
 	SensorDevice pSensor;
 	bool infoLoaded;
-	HMDInfo info;
+	HMDInfo info = new HMDInfo;
 
 	// Need DeviceEnumerator
-	// pHMD = pManager.EnumerateDevicesEx(
-	//	new DeviceEnumerationArgs( HMDDevice.EnumDeviceType, true ) );
+	pHMD = pManager.EnumerateDevices!HMDDevice().CreateDevice();
+
+	writeln( "Device: ", pHMD );
 
 	if( pHMD )
 	{
@@ -26,7 +27,7 @@ void main()
 	else
 	{
 		// Need DeviceEnumerator
-		//pSensor = pManager.EnumerateDevicesEx( FUcking I don't know );
+		pSensor = pManager.EnumerateDevices!SensorDevice().CreateDevice;
 	}
 
 	if( pSensor )
@@ -70,10 +71,10 @@ void main()
 
 	while( pSensor )
 	{
-		SWIGTYPE_p_OVR__QuatT_float_t quaternion = pFusionResult.GetOrientation();
+		Quatf quaternion = pFusionResult.GetOrientation();
 		
 		float yaw, pitch, roll;
-		quaternion.GetEulerAngles<Axis.Axis_Y, Axis.Axis_X, Axis.Axis_Z>( &yaw, &pitch, &roll );
+		quaternion.GetEulerAngles( &yaw, &pitch, &roll );
 
 		auto RadToDegree = ( float num ) => num * 180 / 3.14;
 
