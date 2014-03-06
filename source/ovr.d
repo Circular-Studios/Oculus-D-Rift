@@ -2898,6 +2898,58 @@ class DeviceBase : NewOverrideBase {
     Lock ret = (cPtr is null) ? null : new Lock(cPtr, false);
     return ret;
   }
+
+	public DeviceEnumerator!T EnumerateDevices( T )() if( is( T : DeviceBase ) || is( T : HIDDeviceBase ) )
+	{
+		void* cPtr;
+		static if( is( T == HMDDevice ) )
+		{
+			cPtr = ovr_im.DeviceManager_EnumerateDevices_HMDDevice( cast(void*)swigCPtr );
+		}
+		else static if( is( T == SensorDevice ) )
+		{
+			cPtr = ovr_im.DeviceManager_EnumerateDevices_SensorDevice( cast(void*)swigCPtr );
+		}
+
+		DeviceEnumerator!T result = new DeviceEnumerator!T( cPtr, false );
+
+		return result;
+	}
+}
+
+class DeviceEnumerator( T ) if( is( T : DeviceBase ) || is( T : HIDDeviceBase ) )
+{
+	private void* swigCPtr;
+	protected bool swigCMemOwn;
+	
+	public this(void* cObject, bool ownCObject) {
+		swigCPtr = cObject;
+		swigCMemOwn = ownCObject;
+	}
+
+	public static void* swigGetCPtr(DeviceEnumerator!T obj) {
+		return (obj is null) ? null : obj.swigCPtr;
+	}
+	
+	mixin ovr_im.SwigOperatorDefinitions;
+
+	T CreateDevice()
+	{
+		void* cPtr;
+
+		static if( is( T == HMDDevice ) )
+		{
+			cPtr = ovr_im.DeviceEnumerator_CreateDevice_HMDDevice( cast(void*)swigCPtr );
+		}
+		else static if( is( T == SensorDevice ) )
+		{
+			cPtr = ovr_im.DeviceEnumerator_CreateDevice_SensorDevice( cast(void*)swigCPtr );
+		}
+
+		T ret = new T( cPtr, false );
+
+		return ret;
+	}
 }
 
 class DeviceInfo {
@@ -4967,6 +5019,8 @@ class SWIGTYPE_p_pthread_mutexattr_t {
   mixin ovr_im.SwigOperatorDefinitions;
 }
 
+alias SWIGTYPE_p_OVR__QuatT_float_t Quatf;
+
 class SWIGTYPE_p_OVR__QuatT_float_t {
   private void* swigCPtr;
 
@@ -4983,4 +5037,9 @@ class SWIGTYPE_p_OVR__QuatT_float_t {
   }
 
   mixin ovr_im.SwigOperatorDefinitions;
+
+	void GetEulerAngles( float* y, float* x, float* z )
+	{
+		ovr_im.Quatf_GetEulerAngles( swigCPtr, y, x, z );
+	}
 }

@@ -969,6 +969,12 @@ static this() {
   mixin(bindCode("JSON_GetArraySize", "D_JSON_GetArraySize"));
   mixin(bindCode("JSON_GetArrayNumber", "D_JSON_GetArrayNumber"));
   mixin(bindCode("JSON_GetArrayString", "D_JSON_GetArrayString"));
+
+	mixin(bindCode("DeviceManager_EnumerateDevices_HMDDevice", "D_DeviceManager_EnumerateDevices_HMDDevice"));
+	mixin(bindCode("DeviceEnumerator_CreateDevice_HMDDevice", "D_DeviceEnumerator_CreateDevice_HMDDevice"));
+	mixin(bindCode("DeviceManager_EnumerateDevices_SensorDevice", "D_DeviceManager_EnumerateDevices_SensorDevice"));
+	mixin(bindCode("DeviceEnumerator_CreateDevice_SensorDevice", "D_DeviceEnumerator_CreateDevice_SensorDevice"));
+	mixin(bindCode("Quatf_GetEulerAngles", "D_Quatf_GetEulerAngles"));
 }
 
 //#if !defined(SWIG_D_NO_EXCEPTION_HELPER)
@@ -1812,3 +1818,9 @@ extern(C) void function(void* jarg1, const(char)* jarg2) JSON_AddArrayString;
 extern(C) int function(void* jarg1) JSON_GetArraySize;
 extern(C) double function(void* jarg1, int jarg2) JSON_GetArrayNumber;
 extern(C) const(char)* function(void* jarg1, int jarg2) JSON_GetArrayString;
+
+extern(C) void* function(void* devMan) DeviceManager_EnumerateDevices_HMDDevice;
+extern(C) void* function(void* devEnum) DeviceEnumerator_CreateDevice_HMDDevice;
+extern(C) void* function(void* devMan) DeviceManager_EnumerateDevices_SensorDevice;
+extern(C) void* function(void* devEnum) DeviceEnumerator_CreateDevice_SensorDevice;
+extern(C) void function( void* quat, float* y, float* x, float* z ) Quatf_GetEulerAngles;

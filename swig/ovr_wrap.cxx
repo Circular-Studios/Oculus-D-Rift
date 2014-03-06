@@ -5564,13 +5564,13 @@ SWIGEXPORT void * D_DeviceManager_EnumerateDevicesEx(void * jarg1, void * jarg2)
   return jresult;
 }
 
+OVR::DeviceManager* lastDevMan;
 
 SWIGEXPORT void * D_DeviceManager_Create() {
   void * jresult ;
-  OVR::DeviceManager *result = 0 ;
   
-  result = (OVR::DeviceManager *)OVR::DeviceManager::Create();
-  jresult = (void *)result;
+  lastDevMan = ( OVR::DeviceManager * )OVR::DeviceManager::Create();
+  jresult = (void *)lastDevMan;
   return jresult;
 }
 
@@ -8374,6 +8374,56 @@ SWIGEXPORT char * D_JSON_GetArrayString(void * jarg1, int jarg2) {
   return jresult;
 }
 
+DeviceEnumerator<HMDDevice> lastEnumHMD;
+DeviceEnumerator<SensorDevice> lastEnumSensor;
+
+SWIGEXPORT void* D_DeviceManager_EnumerateDevices_HMDDevice( void* devMan )
+{
+	void* jresult;
+	OVR::DeviceManager* deviceManager = (OVR::DeviceManager*)devMan;
+
+	lastEnumHMD = deviceManager->EnumerateDevices<HMDDevice>();
+	jresult = (void*)&lastEnumHMD;
+	return jresult;
+}
+
+SWIGEXPORT void* D_DeviceEnumerator_CreateDevice_HMDDevice( void* devEnum )
+{
+	void* jresult;
+	OVR::DeviceEnumerator<HMDDevice>* deviceEnumerator = ( OVR::DeviceEnumerator<HMDDevice>* )devEnum;
+	HMDDevice* result;
+
+	result = deviceEnumerator->CreateDevice();
+	jresult = (void*)result;
+	return jresult;
+}
+
+SWIGEXPORT void* D_DeviceManager_EnumerateDevices_SensorDevice( void* devMan )
+{
+	void* jresult;
+	OVR::DeviceManager* deviceManager = ( OVR::DeviceManager* )devMan;
+
+	lastEnumSensor = deviceManager->EnumerateDevices<SensorDevice>();
+	jresult = (void*)&lastEnumHMD;
+	return jresult;
+}
+
+SWIGEXPORT void* D_DeviceEnumerator_CreateDevice_SensorDevice( void* devEnum )
+{
+	void* jresult;
+	OVR::DeviceEnumerator<SensorDevice>* deviceEnumerator = ( OVR::DeviceEnumerator<SensorDevice>* )devEnum;
+	SensorDevice* result;
+
+	result = deviceEnumerator->CreateDevice();
+	jresult = (void*)result;
+	return jresult;
+}
+
+SWIGEXPORT void D_Quatf_GetEulerAngles( void* quatf, float* y, float* x, float* z )
+{
+	Quatf* jarg1 = ( OVR::Quatf* )quatf;
+	jarg1->GetEulerAngles<Axis_Y, Axis_X, Axis_Z>( y, x, z );
+}
 
 SWIGEXPORT OVR::AtomicOpsRawBase * D_AtomicOpsRaw_4ByteImpl_Upcast(OVR::AtomicOpsRawBase *objectRef) {
     return (OVR::AtomicOpsRawBase *)objectRef;
