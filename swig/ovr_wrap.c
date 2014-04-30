@@ -192,8 +192,6 @@ SWIGEXPORT void SWIGRegisterStringCallback_ovr(SWIG_DStringHelperCallback callba
 #include "OVR_CAPI.h"
 #include "OVR_CAPI_GL.h"
 
-using namespace OVR;
-
 
 #ifdef __cplusplus
 extern "C" {
