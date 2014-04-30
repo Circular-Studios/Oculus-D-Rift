@@ -6,16 +6,16 @@ Content     :   String UTF8 string implementation with copy-on-write semantics
 Created     :   September 19, 2012
 Notes       : 
 
-Copyright   :   Copyright 2013 Oculus VR, Inc. All Rights reserved.
+Copyright   :   Copyright 2014 Oculus VR, Inc. All Rights reserved.
 
-Licensed under the Oculus VR SDK License Version 2.0 (the "License"); 
-you may not use the Oculus VR SDK except in compliance with the License, 
+Licensed under the Oculus VR Rift SDK License Version 3.1 (the "License"); 
+you may not use the Oculus VR Rift SDK except in compliance with the License, 
 which is provided at the time of installation or download, or which 
 otherwise accompanies this software in either electronic or hard copy form.
 
 You may obtain a copy of the License at
 
-http://www.oculusvr.com/licenses/LICENSE-2.0 
+http://www.oculusvr.com/licenses/LICENSE-3.1 
 
 Unless required by applicable law or agreed to in writing, the Oculus VR SDK 
 distributed under the License is distributed on an "AS IS" BASIS,
@@ -178,23 +178,6 @@ UInt32 String::GetCharAt(UPInt index) const
     return c;
 }
 
-UInt32 StringBuffer::GetCharAt( UPInt index ) const
-{
-	SPInt       i = (SPInt)index;
-	const char* buf = pData;
-	UInt32      c;
-
-	if( LengthIsSize )
-	{
-		OVR_ASSERT( index < GetSize() );
-		buf += i;
-		return UTF8Util::DecodeNextChar_Advance0( &buf );
-	}
-
-	c = UTF8Util::GetCharAt( index, buf, GetSize() );
-	return c;
-}
-
 UInt32 String::GetFirstCharAt(UPInt index, const char** offset) const
 {
     DataDesc*   pdata = GetData();
@@ -221,40 +204,12 @@ UInt32 String::GetFirstCharAt(UPInt index, const char** offset) const
     return c;
 }
 
-UInt32 StringBuffer::GetFirstCharAt( UPInt index, const char** offset ) const
-{
-	SPInt       i = (SPInt)index;
-	const char* buf = pData;
-	const char* end = buf + GetSize();
-	UInt32      c;
-
-	do
-	{
-		c = UTF8Util::DecodeNextChar_Advance0( &buf );
-		i--;
-
-		if( buf >= end )
-		{
-			// We've hit the end of the string; don't go further.
-			OVR_ASSERT( i == 0 );
-			return c;
-		}
-	} while( i >= 0 );
-
-	*offset = buf;
-
-	return c;
-}
-
 UInt32 String::GetNextChar(const char** offset) const
 {
     return UTF8Util::DecodeNextChar(offset);
 }
 
-UInt32 StringBuffer::GetNextChar( const char** offset ) const
-{
-	return UTF8Util::DecodeNextChar( offset );
-}
+
 
 void String::AppendChar(UInt32 ch)
 {

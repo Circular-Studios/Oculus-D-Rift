@@ -1,2 +1,0 @@
-The following files should be compiled into this modules' wrapper:
-
