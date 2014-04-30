@@ -640,7 +640,7 @@ OVR_EXPORT void     ovrHmd_EndFrameTiming(ovrHmd hmd);
 // Initializes and resets frame time tracking. This is typically not necessary, but
 // is helpful if game changes vsync state or video mode. vsync is assumed to be on if this
 // isn't called. Resets internal frame index to the specified number.
-OVR_EXPORT void     ovrHmd_ResetFrameTiming(ovrHmd hmd, unsigned int frameIndex, bool vsync);
+OVR_EXPORT void     ovrHmd_ResetFrameTiming(ovrHmd hmd, unsigned int frameIndex, ovrBool vsync);
 
 
 // Predicts and returns Pose that should be used rendering the specified eye.
