@@ -8,5 +8,5 @@ Run this from the root directory (note you may need to replace `C:\D\dm\` with
 your path to DMC):
 
 ```
-htod libovr\Src\OVR_CAPI.h source\ovr.d -I"C:\D\dm\include"
+htod libovr\Src\OVR_CAPI.h source\ovr.d -hc -I"C:\D\dm\include"
 ```
