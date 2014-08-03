@@ -35,7 +35,7 @@ limitations under the License.
 /// Please see the Oculus Developer Guide for detailed information about using the SDK in your native applications.
 
 
-import std.c.stdint;
+import core.stdc.stdint;
 
 extern (C):
 alias char ovrBool;
@@ -261,7 +261,7 @@ alias int ovrEyeType;
 
 struct ovrHmdDesc_
 {
-    ovrHmdStruct *Handle;
+    ovrHmd *Handle;
     ovrHmdType Type;
     char *ProductName;
     char *Manufacturer;
