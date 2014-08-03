@@ -261,7 +261,7 @@ alias int ovrEyeType;
 
 struct ovrHmdDesc_
 {
-    ovrHmd *Handle;
+    void *Handle;
     ovrHmdType Type;
     char *ProductName;
     char *Manufacturer;

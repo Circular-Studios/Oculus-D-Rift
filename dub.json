@@ -6,5 +6,7 @@
 	"license": "MIT",
 	"dependencies": {
 	},
-	"targetType": "executable"
+	"targetType": "executable",
+	"dflags-dmd": [ "-m64" ],
+	"libs": [ "libovr" ]
 }

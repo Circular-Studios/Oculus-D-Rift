@@ -5,91 +5,42 @@ import std.stdio;
 
 void main()
 {
-	System.Init();
+    ovr_Initialize();
+    ovrHmd hmd = ovrHmd_Create( 0 );
 
-	SensorFusion pFusionResult = new SensorFusion;
-	DeviceManager pManager = DeviceManager.Create();
-	HMDDevice pHMD;
-	SensorDevice pSensor;
-	bool infoLoaded;
-	HMDInfo info = new HMDInfo;
+    if( hmd )
+    {
+        // Get more details about the HMD.
+        writeln( " DisplayDeviceName: ", hmd.DisplayDeviceName );
+        writeln( " ProductName: ", hmd.ProductName );
+        writeln( " Manufacturer: ", hmd.Manufacturer );
+        writeln( " HResolution: ", hmd.Resolution.w );
+        writeln( " VResolution: ", hmd.Resolution.h );
+        writeln( "--------------------------" );
 
-	// Need DeviceEnumerator
-	pHMD = pManager.EnumerateDevices!HMDDevice().CreateDevice();
+        while( true )
+        {
+            // Start the sensor which provides the Rift’s pose and motion.
+            ovrHmd_ConfigureTracking( hmd, ovrTrackingCap_Orientation |
+                                           ovrTrackingCap_MagYawCorrection |
+                                           ovrTrackingCap_Position, 0 );
 
-	writeln( "Device: ", pHMD );
+            // Query the HMD for the current tracking state.
+            ovrTrackingState ts = ovrHmd_GetTrackingState( hmd, ovr_GetTimeInSeconds() );
 
-	if( pHMD )
-	{
-		infoLoaded = pHMD.GetDeviceInfo( info );
-		pSensor = pHMD.GetSensor();
-	}
-	else
-	{
-		// Need DeviceEnumerator
-		pSensor = pManager.EnumerateDevices!SensorDevice().CreateDevice;
-	}
+            if( ts.StatusFlags & ( ovrStatus_OrientationTracked | ovrStatus_PositionTracked ) )
+            {
+                auto orientation = ts.HeadPose.ThePose.Orientation;
+                writefln( "Orientation: %s,%s,%s,%s", orientation.x, orientation.y, orientation.w, orientation.z );
+            }
+        }
+    }
+    else
+    {
+        writeln( "No HMD connected." );
+    }
 
-	if( pSensor )
-	{
-		pFusionResult.AttachToSensor( pSensor );
-	}
-
-	writeln( "----- Oculus Console -----" );
-
-	if( pHMD )
-		writeln( " [x] HMD Found" );
-	else
-		writeln( " [ ] HMD Not Found" );
-	
-	if( pSensor )
-		writeln( " [x] Sensor Found" );
-	else
-		writeln( " [ ] Sensor Not Found" );
-	
-	writeln( "--------------------------" );
-
-	if( infoLoaded )
-	{
-		writeln( " DisplayDeviceName: ", info.DisplayDeviceName );
-		writeln( " ProductName: ", info.ProductName );
-		writeln( " Manufacturer: ", info.Manufacturer );
-		writeln( " Version: ", info.Version );
-		writeln( " HResolution: ", info.HResolution );
-		writeln( " VResolution: ", info.VResolution );
-		writeln( " HScreenSize: ", info.HScreenSize );
-		writeln( " VScreenSize: ", info.VScreenSize );
-		writeln( " VScreenCenter: ", info.VScreenCenter );
-		writeln( " EyeToScreenDistance: ", info.EyeToScreenDistance );
-		writeln( " LensSeparationDistance: ", info.LensSeparationDistance );
-		writeln( " InterpupillaryDistance: ", info.InterpupillaryDistance );
-		//writeln( " DistortionK[0]: ", info.DistortionK[ 0 ] );
-		//writeln( " DistortionK[1]: ", info.DistortionK[ 1 ] );
-		//writeln( " DistortionK[2]: ", info.DistortionK[ 2 ] );
-		writeln( "--------------------------" );
-	}
-
-	while( pSensor )
-	{
-		Quatf quaternion = pFusionResult.GetOrientation();
-		
-		float yaw, pitch, roll;
-		quaternion.GetEulerAngles( &yaw, &pitch, &roll );
-
-		auto RadToDegree = ( float num ) => num * 180 / 3.14;
-
-		writeln( " Yaw: ", RadToDegree( yaw ),
-				", Pitch: ", RadToDegree( pitch ),
-				", Roll: ", RadToDegree( roll ) );
-
-		import core.thread, core.time;
-		Thread.sleep( dur!"msecs"( 50 ) );
-	}
-
-	// SHUTDOWN
-	pSensor.clear();
-	pHMD.clear();
-	pManager.clear();
-
-	System.Destroy();
+    // SHUTDOWN
+    ovrHmd_Destroy( hmd );
+    ovr_Shutdown();
 }
